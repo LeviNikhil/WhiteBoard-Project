@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext} from 'react'
 import classes from "./index.module.css"
 import cx from 'classnames';
 import {FaSlash} from "react-icons/fa";
@@ -7,7 +7,7 @@ import boardContext from '../../store/board-context';
 
 const ToolBar = () => {
 
-  const {activeToolItem,handleToolItemClick}= useContext(boardContext)
+  const {activeToolItem,changeToolHandler}= useContext(boardContext)
 
   return (
     <div className={classes.container}>
@@ -15,14 +15,14 @@ const ToolBar = () => {
         className={
          cx(classes.toolItem,{[classes.active]:activeToolItem==="LINE"})
         }
-        onClick={()=>handleToolItemClick("LINE")}>
+        onClick={()=>changeToolHandler("LINE")}>
           <FaSlash/>
         </div>
       <div 
         className={
          cx(classes.toolItem,{[classes.active]:activeToolItem==="RECTANGLE"})
         }
-        onClick={()=>handleToolItemClick("RECTANGLE")}>
+        onClick={()=>changeToolHandler("RECTANGLE")}>
           <LuRectangleHorizontal/>
         </div>
     </div>
